@@ -44,7 +44,7 @@ def detect(img, box, detector, encoder, encoding_dict):
     for res in results:  
         print(f"confidence:{res['confidence']}")  
         face, pt_1, pt_2 = get_face(img_rgb, res['box'])  
-        encode = get_encode(encoder, face, REQUIRED_SIZE)  
+        encode = get_encode(encoder, face, REQUIRED_IMAGE_SIZE)  
         encode = l2_normalizer.transform(encode.reshape(1, -1))[0]  
         
         distance = float("inf")  
